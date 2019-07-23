@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QFile>
+#include <QFileDialog>
 #include <QJsonObject>
 #include <QJsonDocument>
 
@@ -17,10 +18,14 @@ class MyJson : public QWidget
 public:
     explicit MyJson(QWidget *parent = 0);
 
+public:
+    void loadjsonfile(const QString &name);
+
 signals:
 
 public slots:
     void savejson();
+    void loadjson();
 private:
     QFile *m_jsonfile;//操作的文件
 
@@ -31,7 +36,8 @@ private://界面
     QLineEdit   *m_poweredit;
     QLabel      *m_frelabel;
     QLineEdit   *m_freedit;
-    QPushButton *m_btn;
+    QPushButton *m_savebtn;
+    QPushButton *m_loadbtn;
 };
 
 #endif // MYJSON_H
